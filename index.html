@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Weather</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="today-weather weather-app">
+        <div class="app-header">
+            <p class="eyebrow">Live forecast</p>
+            <div class="header-row">
+                <h1>Weather</h1>
+                <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">🌙 Dark</button>
+            </div>
+        </div>
+
+        <div class="search-box">
+            <input 
+                type="text" 
+                id="cityInput" 
+                placeholder="Enter city name"
+                value="New York"
+            >
+
+            <button id="searchBtn">Search</button>
+        </div>
+
+        <div class="toolbar">
+            <button id="locationBtn" class="location-btn" type="button">📍 Use my location</button>
+        </div>
+
+        <div class="api-key-box">
+            <label for="apiKeyInput" class="api-key-label">OpenWeather API key</label>
+            <div class="api-key-row">
+                <input id="apiKeyInput" type="text" placeholder="Paste your real API key" />
+                <button id="saveApiKeyBtn" class="save-key-btn" type="button">Save</button>
+            </div>
+        </div>
+
+        <div class="search-history">
+            <h4>Recent cities</h4>
+            <div id="historyList" class="history-list"></div>
+        </div>
+
+        <div class="weather-card">
+            <div class="city-row">
+                <h2 id="cityName">City Name</h2>
+            </div>
+
+            <div id="loadingSpinner" class="spinner hidden" aria-live="polite"></div>
+
+            <div class="weather-main">
+                <img id="weatherIcon" src="https://openweathermap.org/img/wn/01d@2x.png" alt="Weather icon" />
+
+                <div class="temp-block">
+                    <h3 id="temperature">--°C</h3>
+                    <p id="condition">Weather Condition</p>
+                </div>
+            </div>
+
+            <div class="weather-meta">
+                <div class="meta-item">
+                    <span>Humidity</span>
+                    <p id="humidity">Humidity: --%</p>
+                </div>
+
+                <div class="meta-item">
+                    <span>Wind</span>
+                    <p id="wind">Wind Speed: -- km/h</p>
+                </div>
+
+                <div class="meta-item">
+                    <span>Feels like</span>
+                    <p id="feelsLike">--°C</p>
+                </div>
+
+                <div class="meta-item">
+                    <span>Sunrise / Sunset</span>
+                    <p id="sunTime">--:-- / --:--</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="prediction-section" aria-label="Sky forecast preview">
+            <div class="section-header">
+                <h3>Sky Preview</h3>
+                <span id="predictionSummary">Clear and bright</span>
+            </div>
+
+            <div class="prediction-list">
+                <button type="button" class="prediction-card active" data-sky="clear">
+                    <div class="sky-visual sky-clear">☀️</div>
+                    <span>Clear</span>
+                </button>
+
+                <button type="button" class="prediction-card" data-sky="clouds">
+                    <div class="sky-visual sky-clouds">⛅</div>
+                    <span>Cloudy</span>
+                </button>
+
+                <button type="button" class="prediction-card" data-sky="rain">
+                    <div class="sky-visual sky-rain">🌧️</div>
+                    <span>Rain</span>
+                </button>
+
+                <button type="button" class="prediction-card" data-sky="storm">
+                    <div class="sky-visual sky-storm">⛈️</div>
+                    <span>Storm</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="hourly-section">
+            <h3>Next 6 Hours</h3>
+            <div id="hourlyList" class="hourly-list"></div>
+        </div>
+
+        <div class="forecast-section">
+            <h3>5-Day Forecast</h3>
+            <div id="forecastList" class="forecast-list"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
